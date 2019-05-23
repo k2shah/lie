@@ -42,7 +42,7 @@ class complxGrp(object):
 class complxAlg(object):
     # a member of the lie algabra of unit complex numbers S1
     def __init__(self, theta):
-        # make the member
+        # make the member in iR "pure" imaginary numbers
         self.theta = theta
 
     def __repr__(self):
@@ -59,7 +59,7 @@ class complxAlg(object):
 
     def adj(self, X):
         # X is a member of the partent lie group
-        # (a+bi)(theta-i)(a-bi) = (a^2+b^2)theta-i
+        # (a-bi)(theta-i)(a+bi) = (a^2+b^2)theta-i
         # but for complex unit numbers (a^2+b^2)=1 so this is self adjoint
         return self
 

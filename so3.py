@@ -51,7 +51,7 @@ class so3Grp(object):
         return self.X.__repr__()
 
     def inv(self):
-        # reurns the inverse group member z* such that z*z=1
+        # reurns the inverse group member z* such that z*z=I
         return so3Grp((self.X).T)  # cuz orthogonal matrix
 
     def mult(self, Z):
@@ -133,24 +133,20 @@ if __name__ == '__main__':
     AV_world = A.step(v)
     AV_body = A.mult(V)
 
+    # should be the same as AV_world
+    VA_world = V.mult(A)
+
     A.plot(ax, frame, tip='r')
     # V.plot(ax, frame, tip='b')
 
-    # translate to body frame
+    # plot
     AV_body.plot(ax, frame, tip='g')
     AV_world.plot(ax, frame, tip='c')
+    VA_world.plot(ax, frame, tip='m')
 
-    # # plot a cool thing
+    print(AV_world)
+    print(VA_world)
 
-    # a = complxGrp(0, 1)  # 90
-    # v = complxAlg(np.pi/6)
-    # b = a.step(v)  # shift by 30 degs anticlockwise to 120
-
-    # a.plot(ax)
-    # b.plot(ax, 'r')
-
-    # print(a)
-    # print(b)
 
     # plotted for style
 
